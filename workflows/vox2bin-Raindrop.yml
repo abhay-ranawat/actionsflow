@@ -1,0 +1,17 @@
+name: Make a Bookmark in Raindrop.io from Vox RSS
+on:
+  rss:
+    url: https://www.vox.com/rss/index.xml
+jobs:
+  request:
+    name: Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Bookmark to Raindrop.io      
+        uses: actionsflow/axios@main
+        with:
+          url: https://88c9ef3ede994ef50d787cd4fb34121d.m.pipedream.net
+          bearer-token: ${{ secrets.bearer_token }}
+          content-type: application/json
+          method: POST
+          data: '{ "link":"${{on.rss.outputs.link}}", "title": "${{on.rss.outputs.title}}", "collection": { "$id": "14422740" }, "pleaseParse": {} }'
