@@ -1,17 +1,25 @@
+name: Make a Bookmark in Raindrop.io from Vox RSS
 on:
   rss:
-    url: https://hnrss.org/newest?points=300&count=3
+    url: https://www.vox.com/rss/index.xml
 jobs:
-  print:
-    name: Print
+  request:
+    name: Request
     runs-on: ubuntu-latest
     steps:
-      - name: Print Outputs
-        env:
-          title: ${{on.rss.outputs.title}}
-          contentSnippet: ${{on.rss.outputs.contentSnippet}}
-          link: ${{on.rss.outputs.link}}
-        run: |
-          echo title: $title
-          echo contentSnippet: $contentSnippet
-          echo link: $link
+      - name: Send Bookmark to Raindrop.io      
+        uses: actionsflow/axios@main
+        with:
+          url: https://api.raindrop.io/rest/v1/raindrop
+          bearer-token: ${{ secrets.bearer_token }}
+          content-type: application/json
+          method: POST
+          data: |
+            {
+              "link":"${{on.rss.outputs.link}}", 
+              "title": "${{on.rss.outputs.title}}",
+              "collection": {
+              "$id": "14422740"
+              }
+              "pleaseParse": {}
+            }
