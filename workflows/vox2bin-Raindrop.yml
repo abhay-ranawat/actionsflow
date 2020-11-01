@@ -10,7 +10,7 @@ jobs:
       - name: Send Bookmark to Raindrop.io      
         uses: actionsflow/axios@main
         with:
-          url: https://88c9ef3ede994ef50d787cd4fb34121d.m.pipedream.net
+          url: https://api.raindrop.io/rest/v1/raindrop
           bearer-token: ${{ secrets.BEARER_TOKEN }}
           headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
