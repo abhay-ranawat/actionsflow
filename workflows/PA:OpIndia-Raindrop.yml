@@ -1,4 +1,4 @@
-name: Make a Bookmark in Raindrop.io from TechCrunch RSS
+name: Make a Bookmark in Raindrop.io from OpIndia RSS
 on:
   rss:
     url: https://www.opindia.com/feed/
