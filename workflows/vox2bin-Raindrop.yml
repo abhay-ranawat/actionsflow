@@ -12,6 +12,6 @@ jobs:
         with:
           url: https://88c9ef3ede994ef50d787cd4fb34121d.m.pipedream.net
           bearer-token: ${{ secrets.BEARER_TOKEN }}
-          headers: '{ Content-Type': 'application/json; charset=utf-8 }'
+          headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
           data: '{ "link":"${{on.rss.outputs.link}}", "title": "${{on.rss.outputs.title}}", "collection": { "$id": "14422740" }, "pleaseParse": {} }'
