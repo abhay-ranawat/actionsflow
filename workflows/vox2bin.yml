@@ -10,7 +10,7 @@ jobs:
       - name: Make a HTTP Request      
         uses: actionsflow/axios@main
         with:
-          url: https://hookb.in/BYzWD7eQ9jsLDDx31Koq
+          url: https://88c9ef3ede994ef50d787cd4fb34121d.m.pipedream.net
           method: POST
           body: |
             {
