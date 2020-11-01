@@ -11,7 +11,7 @@ jobs:
         uses: actionsflow/axios@main
         with:
           url: https://api.raindrop.io/rest/v1/raindrop
-          bearer-token: ${{ secrets.bearer_token }}
+          bearer-token: ${{ secrets.BEARER_TOKEN }}
           content-type: application/json
           method: POST
           data: '{ "link":"${{on.rss.outputs.link}}", "title": "${{on.rss.outputs.title}}", "collection": { "$id": "14422740" }, "pleaseParse": {} }'
