@@ -1,7 +1,7 @@
-name: Make a Bookmark in Raindrop.io from Vox RSS
+name: Make a Bookmark in Raindrop.io from TechCrunch RSS
 on:
   rss:
-    url: https://lrm.glitch.me/feed?unit=second
+    url: https://techcrunch.com/feed/
 jobs:
   request:
     name: Request
@@ -14,4 +14,4 @@ jobs:
           bearer-token: ${{ secrets.BEARER_TOKEN }}
           headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
-          data: '{ "link":"${{on.rss.outputs.link}}", "title": "${{on.rss.outputs.title}}", "collection": { "$id": "14422740" }, "pleaseParse": {} }'
+          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14422740" }, "pleaseParse": {} }'
