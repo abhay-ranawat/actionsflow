@@ -20,6 +20,6 @@ jobs:
               "title": "${{on.rss.outputs.title}}",
               "collection": {
               "$id": "14422740"
-              }
+              },
               "pleaseParse": {}
             }
