@@ -1,0 +1,17 @@
+name: Make a Bookmark in Raindrop.io from Swarantra Magzine RSS
+on:
+  rss:
+    url: https://swatantramag.com/feed/
+jobs:
+  request:
+    name: Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Bookmark to Raindrop.io      
+        uses: actionsflow/axios@main
+        with:
+          url: https://api.raindrop.io/rest/v1/raindrop
+          bearer-token: ${{ secrets.BEARER_TOKEN }}
+          headers: '{ "Content-Type": "application/json; charset=utf-8" }'
+          method: POST
+          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14428155" }, "pleaseParse": {} }'
