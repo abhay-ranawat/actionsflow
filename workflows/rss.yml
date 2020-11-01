@@ -14,7 +14,7 @@ jobs:
           bearer-token: ${{ secrets.bearer_token }}
           content-type: application/json
           method: POST
-          data: |
+          data:
             {
               "link":"${{on.rss.outputs.link}}", 
               "title": "${{on.rss.outputs.title}}",
