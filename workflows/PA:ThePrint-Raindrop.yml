@@ -1,7 +1,7 @@
-name: Make a Bookmark in Raindrop.io from TheVerge RSS
+name: Make a Bookmark in Raindrop.io from ThePrint RSS
 on:
   rss:
-    url: https://www.theverge.com/rss/index.xml
+    url: https://theprint.in/feed/
 jobs:
   request:
     name: Request
@@ -14,4 +14,4 @@ jobs:
           bearer-token: ${{ secrets.BEARER_TOKEN }}
           headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
-          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14439880" }, "pleaseParse": {} }'
+          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14437984" }, "pleaseParse": {} }'
