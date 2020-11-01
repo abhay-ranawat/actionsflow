@@ -12,6 +12,6 @@ jobs:
         with:
           url: https://api.raindrop.io/rest/v1/raindrop
           bearer-token: ${{ secrets.BEARER_TOKEN }}
-          content-type: application/json
+          headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
-          data: '{ "link":"${{on.rss.outputs.link}}", "title": "${{on.rss.outputs.title}}", "collection": { "$id": "14422740" }, "pleaseParse": {} }'
+          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14422740" }, "pleaseParse": {} }'
