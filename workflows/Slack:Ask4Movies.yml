@@ -1,7 +1,7 @@
 name: Send Ask4Movie RSS to Slack
 on:
   rss:
-    url: ttp://ask4movie.co/feed/
+    url: http://ask4movie.co/feed/
     
 jobs:
   webhook:
