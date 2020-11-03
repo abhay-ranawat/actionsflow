@@ -27,6 +27,6 @@ jobs:
       - name: Send HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: https://hooks.slack.com/services/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
+          url: https://hooks.slack.com/services/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
           method: 'POST'
           body: '{ "text": "*<${{on.youtube.outputs.link}}| ${{on.youtube.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
