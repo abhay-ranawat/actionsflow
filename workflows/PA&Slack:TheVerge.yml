@@ -24,6 +24,6 @@ jobs:
       - name: Send HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: ${{ WALT_NEWS_WEBHOOK }}
+          url: ${{ secrets.WALT_NEWS_WEBHOOK }}
           method: 'POST'
           body: '{ "text": "*<${{on.rss.outputs.link}}| ${{on.rss.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
