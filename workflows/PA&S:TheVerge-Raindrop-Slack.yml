@@ -1,7 +1,7 @@
-name: Make a Bookmark in Raindrop.io from Github Tredning RSS and Send it to Slack
+name: Make a Bookmark in Raindrop.io from The Verge RSS and Send it to Slack
 on:
   rss:
-    url: https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml
+    url: https://www.theverge.com/rss/index.xml
     
 jobs:
   request:
@@ -15,7 +15,7 @@ jobs:
           bearer-token: ${{ secrets.BEARER_TOKEN }}
           headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
-          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "10549015" }, "pleaseParse": {} }'
+          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14467808" }, "pleaseParse": {} }'
  
   webhook:
     name: Send HTTP Request to Slack Webhook
@@ -24,6 +24,6 @@ jobs:
       - name: Send HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: ${{ secrets.WALT_GITHUBTRENDING_WEBHOOK }}
+          url: ${{ secrets.PLUTFOX_TEST_WEBHOOK }}
           method: 'POST'
           body: '{ "text": "*<${{on.rss.outputs.link}}| ${{on.rss.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
