@@ -14,7 +14,7 @@ jobs:
           bearer-token: ${{ secrets.BEARER_TOKEN }}
           headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
-          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14422738" }, "pleaseParse": {} }'
+          data: '{ "link":"${{on.rss.outputs.link}}", "title": "${{on.rss.outputs.title}}", "collection": { "$id": "14422738" }, "pleaseParse": {} }'
            
   webhook:
     name: Send HTTP Request to Slack Webhook
