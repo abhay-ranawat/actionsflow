@@ -1,0 +1,16 @@
+name: Send Ars Technica RSS to Slack
+on:
+  rss:
+    url: https://arstechnica.com/feed/
+    
+jobs:
+  webhook:
+    name: Send HTTP Request to Slack Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send HTTP Request
+        uses: actionsflow/axios@v1
+        with:
+          url: ${{ secrets.WALT_NEWS_WEBHOOK }}
+          method: 'POST'
+          body: '{ "text": "*<${{on.rss.outputs.link}}| ${{on.rss.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
