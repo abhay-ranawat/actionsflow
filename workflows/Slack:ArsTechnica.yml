@@ -1,7 +1,7 @@
-name: Send Android Police RSS to Slack
+name: Send Ars Technica RSS to Slack
 on:
   rss:
-    url: https://www.androidpolice.com/feed/
+    url: https://arstechnica.com/feed/
     
 jobs:
   webhook:
