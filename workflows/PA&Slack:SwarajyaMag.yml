@@ -15,3 +15,15 @@ jobs:
           headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
           data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14422738" }, "pleaseParse": {} }'
+           
+  webhook:
+    name: Send HTTP Request to Slack Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send HTTP Request
+        uses: actionsflow/axios@v1
+        with:
+          url: ${{ secrets.WALT_NEWSBHARTIYA_WEBHOOK }}
+          method: 'POST'
+          body: '{ "text": "*<${{on.rss.outputs.link}}| ${{on.rss.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
+
