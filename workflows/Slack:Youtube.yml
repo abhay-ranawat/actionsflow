@@ -1,3 +1,4 @@
+name: Send Youtube Video to Slack
 on:
   youtube:
     channel_id:
@@ -27,4 +28,4 @@ jobs:
         with:
           url: https://f09c0d583cdd2b4aa0e22f94b7cabd5f.m.pipedream.net
           method: 'POST'
-          body: '{ "text": "*<{{on.youtube.outputs.link}}| {{on.youtube.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
+          body: '{ "text": "*<${{on.youtube.outputs.link}}| ${{on.youtube.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
