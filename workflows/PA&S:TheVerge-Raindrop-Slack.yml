@@ -15,7 +15,7 @@ jobs:
           bearer-token: ${{ secrets.BEARER_TOKEN }}
           headers: '{ "Content-Type": "application/json; charset=utf-8" }'
           method: POST
-          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "14467808" }, "pleaseParse": {} }'
+          data: '{ "link":"${{on.rss.outputs.link}}", "collection": { "$id": "13435231" }, "pleaseParse": {} }'
  
   webhook:
     name: Send HTTP Request to Slack Webhook
@@ -24,6 +24,6 @@ jobs:
       - name: Send HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: ${{ secrets.PLUTFOX_TEST_WEBHOOK }}
+          url: ${{ secrets.WALT_NEWS_WEBHOOK}}
           method: 'POST'
           body: '{ "text": "*<${{on.rss.outputs.link}}| ${{on.rss.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
