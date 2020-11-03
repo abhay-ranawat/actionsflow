@@ -3,7 +3,7 @@ on:
   youtube:
     channel_id:
       - UCddiUEpeqJcYeBxX1IVBKvQ
-      - UCE_M8A5yxnLfW0KghEeajjw
+      - UCK8sQmJBp8GCxrOtXWBpyEA
       - UCUHW94eEFW7hkUMVaZz4eDg
       - UCtxJFU9DgUhfr2J2bveCHkQ
       - UCrM7B7SL_g1edFOnmj-SDKg
@@ -27,6 +27,6 @@ jobs:
       - name: Send HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: https://hooks.slack.com/services/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
+          url: ${{ secrets.WALT_YOUTUBE_WEBHOOK }}
           method: 'POST'
           body: '{ "text": "*<${{on.youtube.outputs.link}}| ${{on.youtube.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
