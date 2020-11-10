@@ -1,0 +1,26 @@
+name: Send Ars Technica RSS to Raindrop.io
+on:
+  rss:
+    url: https://arstechnica.com/feed/
+    
+jobs:
+  webhook:
+    name: Send HTTP Request to Slack Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send HTTP Request
+        uses: actionsflow/axios@v1
+        with:
+          url: https://fullurl.netlify.app/.netlify/functions/fullurl-background/?url=${{on.rss.outputs.link}}
+          method: 'GET'
+          
+   swebhook:
+    name: Send HTTP Request to Slack Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send HTTP Request
+        uses: actionsflow/axios@v1
+        with:
+          url: https://f09c0d583cdd2b4aa0e22f94b7cabd5f.m.pipedream.net
+          method: 'POST'
+          body: '{ "text": "*<${{jobs.webhook.outputs}}| ${{on.rss.outputs.title}}>*", "unfurl_media":true, "unfurl_links":true }'
