@@ -14,7 +14,7 @@ jobs:
           url: https://fullurl.netlify.app/.netlify/functions/fullurl-background/?url=${{on.rss.outputs.link}}
           method: 'GET'
           
-   swebhook:
+   webhook:
     name: Send HTTP Request to Slack Webhook
     runs-on: ubuntu-latest
     steps:
